@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/11 05:53:00 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/11 22:48:43 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 /* KEYS MACROS */
 
 /* GAME MACROS */
-# define FPS 5
+# define FPS 30
 # define FRAME_MS_TIME (1000.0f / FPS)
 /* GAME MACROS */
 
