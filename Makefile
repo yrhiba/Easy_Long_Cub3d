@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 00:12:42 by yrhiba            #+#    #+#              #
-#    Updated: 2024/01/11 05:54:14 by yrhiba           ###   ########.fr        #
+#    Updated: 2024/01/12 00:35:44 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRCS =	main.c \
 		3-parsing-module/do_parsing.c \
 		A-utils/getcolor.c \
 		A-utils/exit_failure.c \
-		A-utils/check_ext.c
+		A-utils/check_ext.c \
+		A-utils/my_string_free.c
 
 INC =	header.h
 

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:36:04 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/11 04:47:44 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 00:34:32 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@ void init_data(t_data **data)
 	(*data)->mini_map = NULL;
 	(*data)->map_width = 0;
 	(*data)->map_height = 0;
+	(*data)->map_file_lines = NULL;
 	gettimeofday(&((*data)->lastframetime), NULL);
 }

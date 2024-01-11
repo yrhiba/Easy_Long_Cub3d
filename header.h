@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/11 22:48:43 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 00:43:10 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <unistd.h>
 # include <math.h>
 # include <sys/time.h>
+# include <fcntl.h>
 # include <mlx.h>
 
 # include "libft.h"
@@ -30,6 +31,7 @@
 /* WINDOW MACROS */
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
+# define FOOTER_HEIGHT 0
 # define WIN_TITLE "Easy-long-cub3d"
 /* WINDOW MACROS */
 
@@ -105,6 +107,10 @@ typedef struct s_data
 	t_color			floor_color;
 	t_color			ceiling_color;
 
+	/*parsing-information*/
+	t_my_list		*map_file_lines;
+	/*parsing-information*/
+
 }	t_data;
 
 /* data-module */
@@ -135,6 +141,7 @@ void	do_parsing(t_data *data, int ac, char **av);
 int		getcolor(int t, int r, int g, int b);
 void	exit_failure(const char *errmsg);
 bool	check_ext(char *file_name, char *ext);
+void	my_string_free(void **string);
 /*utils*/
 
 #endif
