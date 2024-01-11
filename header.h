@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 00:43:10 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 00:46:35 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,8 @@ int		redcrosspressed(t_data *data);
 
 /*parsing-module*/
 void	do_parsing(t_data *data, int ac, char **av);
+bool	read_file_content(t_data *data, char *file_path);
+void	clear_parsing_data(t_data *data);
 /*parsing-module*/
 
 /*utils*/

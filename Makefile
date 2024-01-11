@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 00:12:42 by yrhiba            #+#    #+#              #
-#    Updated: 2024/01/12 00:35:44 by yrhiba           ###   ########.fr        #
+#    Updated: 2024/01/12 00:46:17 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRCS =	main.c \
 		2-mlx-module/events/keypressdown.c \
 		2-mlx-module/events/redcrosspressed.c \
 		3-parsing-module/do_parsing.c \
+		3-parsing-module/read_file_content.c \
+		3-parsing-module/clear_parsing_data.c \
 		A-utils/getcolor.c \
 		A-utils/exit_failure.c \
 		A-utils/check_ext.c \
