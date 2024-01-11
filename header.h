@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/11 22:48:43 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 00:07:34 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 # include "libmystr.h"
 # include "my_list.h"
 # include "get_next_line.h"
+
+/* VIRUS COUNTS */
+# define PARTICLES 90
+/* VIRUS COUNTS */
 
 /* WINDOW MACROS */
 # define WIN_WIDTH 1920
@@ -79,10 +83,17 @@ typedef struct s_color
 
 }				t_color;
 
+typedef struct s_vector
+{
+	float x;
+	float y;
+
+} t_vector;
+
 typedef struct s_player
 {
-	float	x;
-	float	y;
+	t_vector pos;
+	t_vector velocty;
 
 } t_player;
 
@@ -99,7 +110,7 @@ typedef struct s_data
 	int			map_width;
 	int			map_height;
 
-	t_player	*player;
+	t_player	virus[PARTICLES];
 
 	t_textures		textures;
 	t_color			floor_color;
