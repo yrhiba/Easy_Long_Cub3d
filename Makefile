@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 00:12:42 by yrhiba            #+#    #+#              #
-#    Updated: 2024/01/12 08:32:38 by yrhiba           ###   ########.fr        #
+#    Updated: 2024/01/12 10:34:01 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS =	main.c \
 		1-frame-module/frame_render_line.c \
 		2-mlx-module/init_mlx.c \
 		2-mlx-module/events/keypressdown.c \
+		2-mlx-module/events/keypressdup.c \
 		2-mlx-module/events/redcrosspressed.c \
 		3-parsing-module/do_parsing.c \
 		3-parsing-module/read_file_content.c \
@@ -30,6 +31,7 @@ SRCS =	main.c \
 		3-parsing-module/construct_map.c \
 		3-parsing-module/check_for_map.c \
 		3-parsing-module/set_player_data.c \
+		4-game-module/update_player.c \
 		4-game-module/render_2dmap.c \
 		A-utils/getcolor.c \
 		A-utils/exit_failure.c \
@@ -37,7 +39,8 @@ SRCS =	main.c \
 		A-utils/my_string_free.c \
 		A-utils/is_valid_color.c \
 		A-utils/dumy_math.c \
-		A-utils/set_and_free_directions.c
+		A-utils/set_and_free_directions.c \
+		A-utils/isplauyercolliedwithwall.c
 
 INC =	header.h
 

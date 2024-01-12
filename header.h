@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 08:32:48 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 10:38:46 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@
 
 /* KEYS MACROS */
 # define ESC_KEY 53
+# define RIGHT_KEY 124
+# define LEFT_KEY 123
+# define UP_KEY 126
+# define DOWN_KEY 125
 /* KEYS MACROS */
 
 /* GAME MACROS */
@@ -167,6 +171,7 @@ void	init_mlx(t_data *data);
 
 /*mlx-events*/
 int		keypressdown(int keycode, t_data *data);
+int		keypressdup(int keycode, t_data *data);
 int		redcrosspressed(t_data *data);
 /*mlx-events*/
 
@@ -181,6 +186,7 @@ void	set_player_data(t_data *data, int y, int x);
 /*parsing-module*/
 
 /*game-module*/
+void	update_player(t_data *data, float deltatime);
 void	render_2dmap(t_data *data);
 /*game-module*/
 
@@ -193,6 +199,7 @@ void	my_string_free(void **string);
 bool	is_valid_color(t_color *color);
 void	set_directions(t_data *data);
 void	free_directions(t_data *data);
+bool	isplauyercolliedwithwall(t_data *data, t_vector player_pos);
 /*utils*/
 
 /*dumy-math*/
