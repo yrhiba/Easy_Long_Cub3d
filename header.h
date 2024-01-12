@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 05:59:15 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 06:28:41 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define HEADER_H
 
 /* DEDUG ON/OFF */
-# define DEBUG 0
+# define DEBUG 1
 /* DEDUG ON/OFF */
 
 # include <stdio.h>
@@ -56,8 +56,13 @@
 /* GAME MACROS */
 # define FPS 30
 # define FRAME_MS_TIME (1000.0f / FPS)
+
 # define MIN_MAP_WIDTH 5
 # define MIN_MAP_HEIGHT 5
+
+# define TILE_WIDTH 50
+# define TILE_HEIGTH 50
+
 /* GAME MACROS */
 
 typedef struct	s_frame
@@ -93,6 +98,13 @@ typedef struct s_player
 	float	y;
 
 } t_player;
+
+typedef struct s_vector
+{
+	int	x;
+	int	y;
+
+}	t_vector;
 
 typedef struct s_data
 {
@@ -136,6 +148,8 @@ void	clear_data(t_data **data);
 void	frame_pixel_put(t_frame *frame, int x, int y, int color);
 int		frame_fill_with_color(t_frame *frame, int color);
 int		frame_update(t_data *data);
+int		frame_render_rect(t_frame *frame, t_vector pos,
+			int color, int width, int height);
 /*frame-module*/
 
 /*mlx-module*/
@@ -155,6 +169,11 @@ void	clear_parsing_data(t_data *data);
 void	construct_map(t_data *data);
 void	check_for_map(t_data *data);
 /*parsing-module*/
+
+/*game-module*/
+void	render_2dmap(t_data *data);
+/*game-module*/
+
 
 /*utils*/
 int		getcolor(int t, int r, int g, int b);

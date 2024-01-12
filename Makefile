@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 00:12:42 by yrhiba            #+#    #+#              #
-#    Updated: 2024/01/12 05:48:21 by yrhiba           ###   ########.fr        #
+#    Updated: 2024/01/12 06:21:32 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS =	main.c \
 		1-frame-module/frame_pixel_put.c \
 		1-frame-module/frame_fill_with_color.c \
 		1-frame-module/frame_update.c \
+		1-frame-module/frame_render_rect.c \
 		2-mlx-module/init_mlx.c \
 		2-mlx-module/events/keypressdown.c \
 		2-mlx-module/events/redcrosspressed.c \
@@ -27,6 +28,7 @@ SRCS =	main.c \
 		3-parsing-module/clear_parsing_data.c \
 		3-parsing-module/construct_map.c \
 		3-parsing-module/check_for_map.c \
+		4-game-module/render_2dmap.c \
 		A-utils/getcolor.c \
 		A-utils/exit_failure.c \
 		A-utils/check_ext.c \

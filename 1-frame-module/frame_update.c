@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 02:19:26 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 01:45:03 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 06:30:46 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ int frame_update(t_data *data)
 	if (timepassedms < FRAME_MS_TIME)
 		return (0);
 
-	float deltatime = timepassedms / 1000.0f;
+	// float deltatime = timepassedms / 1000.0f;
 
 	/* ########## */
 	// todo: update game frame here
 	frame_fill_with_color(data->frame, getcolor(0, 0, 0, 0));
+	render_2dmap(data);
 	/*render player*/
 	/* ########## */
 

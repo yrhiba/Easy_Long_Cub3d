@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   frame_pixel_put.c                                  :+:      :+:    :+:   */
+/*   frame_render_rect.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/10 23:08:33 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 06:10:23 by yrhiba           ###   ########.fr       */
+/*   Created: 2024/01/12 06:05:33 by yrhiba            #+#    #+#             */
+/*   Updated: 2024/01/12 06:12:08 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
 
-void	frame_pixel_put(t_frame *frame, int x, int y, int color)
+int	frame_render_rect(t_frame *frame, t_vector pos, int color, int width, int height)
 {
-	char	*dst;
+	int	x;
+	int	y;
 
-	if (0 <= x && x < WIN_WIDTH && 0 <= y && y < WIN_HEIGHT)
+	x = -1;
+	while (++x < width)
 	{
-		dst = frame->addr + (y * frame->line_length + x * (frame->bits_per_pixel / 8));
-		*(unsigned int*)dst = color;
+		y = -1;
+		while (++y < height)
+			frame_pixel_put(frame, pos.x + x, pos.y + y, color);
 	}
+	return (0);
 }
