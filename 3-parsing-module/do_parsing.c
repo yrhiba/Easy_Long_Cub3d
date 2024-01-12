@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 05:03:39 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 05:51:14 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 08:12:59 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,29 +81,3 @@ void	do_parsing(t_data *data, int ac, char **av)
 	check_for_map(data);
 	clear_parsing_data(data);
 }
-
-/*
-	printf("h:%d, w:%d\n", data->map_height, data->map_width);
-	printf("no:%s\n", data->textures.no_file_path);
-	printf("so:%s\n", data->textures.so_file_path);
-	printf("we:%s\n", data->textures.we_file_path);
-	printf("ea:%s\n", data->textures.ea_file_path);
-	printf("f-color:%d,%d,%d\n",
-		data->floor_color.red,
-		data->floor_color.green,
-		data->floor_color.blue
-	);
-	printf("c-color:%d,%d,%d\n",
-		data->ceiling_color.red,
-		data->ceiling_color.green,
-		data->ceiling_color.blue
-	);
-	for (t_my_list *it = data->map_only_lines; it; it = it->next)
-		printf("%s\n", (char *)it->data);
-	for (int i = 0; i < data->map_height; i++)
-	{
-		for (int j = 0; j < data->map_width; j++)
-			printf("%c", data->map[i][j]);
-		printf("\n");
-	}
-*/

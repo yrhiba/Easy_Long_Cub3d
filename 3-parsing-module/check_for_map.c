@@ -6,17 +6,11 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 05:11:58 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 07:43:42 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 08:48:40 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-
-void	set_player_data(t_data *data, int y, int x)
-{
-	data->player->pos.x = (x * TILE_WIDTH) + (TILE_WIDTH / 2);
-	data->player->pos.y = (y * TILE_HEIGTH) + (TILE_HEIGTH / 2);
-}
 
 void	set_and_counts_map_items(t_data *data)
 {

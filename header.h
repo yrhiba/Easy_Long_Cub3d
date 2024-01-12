@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 07:48:50 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 08:32:48 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@
 # define TILE_WIDTH 50
 # define TILE_HEIGTH 50
 
+# define FOV (60 * (M_PI / 180))
+
 /* GAME MACROS */
 
 typedef struct	s_frame
@@ -101,8 +103,13 @@ typedef struct s_vector
 
 typedef struct s_player
 {
-	t_vector pos;
-
+	t_vector	pos;
+	int			turn_direction; // -1 or 1 | left or right
+	int			walk_direction; // -1 or 1 | backward or forward
+	float		rotation_angle; // current angle
+	int			walk_speed; // pixel per second
+	float		turn_speed; // angle per second
+ 
 } t_player;
 
 
@@ -150,6 +157,8 @@ int		frame_fill_with_color(t_frame *frame, int color);
 int		frame_update(t_data *data);
 int		frame_render_rect(t_frame *frame, t_vector pos,
 			int color, int width, int height);
+int		frame_render_line(t_frame *frame, t_vector pos1,
+			t_vector pos2, int color);
 /*frame-module*/
 
 /*mlx-module*/
@@ -168,6 +177,7 @@ void	check_line(t_data *data, char *line, bool *map_found);
 void	clear_parsing_data(t_data *data);
 void	construct_map(t_data *data);
 void	check_for_map(t_data *data);
+void	set_player_data(t_data *data, int y, int x);
 /*parsing-module*/
 
 /*game-module*/
