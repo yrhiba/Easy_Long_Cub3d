@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:08:33 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 05:59:12 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 07:55:11 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void ParsingDebug(t_data *data)
 		printf("\n");
 	}
 	printf("h:%d, w:%d\n", data->map_height, data->map_width);
-	printf("player: (r:%d, c:%d)\n", (int)data->player->y, (int)data->player->x);
+	printf("player: (r:%d, c:%d)\n", data->player->pos.y, data->player->pos.x);
 }
 
 int		main(int ac, char **av)

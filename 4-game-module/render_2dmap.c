@@ -6,11 +6,22 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 06:20:25 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 06:30:49 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 07:56:49 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "header.h"
+
+void render_player_in2dmap(t_data *data)
+{
+	t_vector	pos;
+	int			player_size;
+
+	player_size = 15;
+	pos.x = data->player->pos.x - (player_size/2);
+	pos.y = data->player->pos.y - (player_size/2);
+	frame_render_rect(data->frame, pos, getcolor(0, 0, 255, 0), player_size, player_size);
+}
 
 void render_2dmap(t_data *data)
 {
@@ -35,4 +46,5 @@ void render_2dmap(t_data *data)
 			frame_render_rect(data->frame, g, color, TILE_WIDTH, TILE_HEIGTH);
 		}
 	}
+	render_player_in2dmap(data);
 }

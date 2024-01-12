@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 06:28:41 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 07:48:50 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,19 +92,19 @@ typedef struct s_color
 
 }				t_color;
 
-typedef struct s_player
-{
-	float	x;
-	float	y;
-
-} t_player;
-
 typedef struct s_vector
 {
 	int	x;
 	int	y;
 
 }	t_vector;
+
+typedef struct s_player
+{
+	t_vector pos;
+
+} t_player;
+
 
 typedef struct s_data
 {

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 02:36:41 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 04:17:45 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 07:54:14 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void check_f_var(t_data *data, char **parts)
 	data->floor_color.red = ft_atoi(colors[0]);
 	data->floor_color.green = ft_atoi(colors[1]);
 	data->floor_color.blue = ft_atoi(colors[2]);
+	my_strings_free(&colors);
 	if (!is_valid_color(&(data->floor_color)))
 		exit_failure("check_f_var::invalid floor color given");
 }
@@ -86,6 +87,7 @@ void check_c_var(t_data *data, char **parts)
 	data->ceiling_color.red = ft_atoi(colors[0]);
 	data->ceiling_color.green = ft_atoi(colors[1]);
 	data->ceiling_color.blue = ft_atoi(colors[2]);
+	my_strings_free(&colors);
 	if (!is_valid_color(&(data->ceiling_color)))
 		exit_failure("check_c_var::invalid ceiling color given");
 }
@@ -98,10 +100,14 @@ void check_line(t_data *data, char *line, bool *map_found)
 	if (!parts)
 		exit_failure("check_line::my_string_split_by_first::failed");
 	if (!ft_strlen(parts[0]))
+	{
+		my_strings_free(&parts);
 		return ;
+	}
 	if (check_map_start(parts))
 	{
 		*map_found = true;
+		my_strings_free(&parts);
 		return ;
 	}
 	check_no_var(data, parts);
@@ -110,4 +116,5 @@ void check_line(t_data *data, char *line, bool *map_found)
 	check_ea_var(data, parts);
 	check_f_var(data, parts);
 	check_c_var(data, parts);
+	my_strings_free(&parts);
 }
