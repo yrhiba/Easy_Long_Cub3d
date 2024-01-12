@@ -6,12 +6,16 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 00:46:35 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 05:59:15 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEADER_H
 # define HEADER_H
+
+/* DEDUG ON/OFF */
+# define DEBUG 0
+/* DEDUG ON/OFF */
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -52,6 +56,8 @@
 /* GAME MACROS */
 # define FPS 30
 # define FRAME_MS_TIME (1000.0f / FPS)
+# define MIN_MAP_WIDTH 5
+# define MIN_MAP_HEIGHT 5
 /* GAME MACROS */
 
 typedef struct	s_frame
@@ -109,6 +115,14 @@ typedef struct s_data
 
 	/*parsing-information*/
 	t_my_list		*map_file_lines;
+	t_my_list		*map_only_lines;
+	bool			ceiling_color_given;
+	bool			floor_color_given;
+	int				player_count;
+	int				zero_count;
+	int				one_count;
+	int				*dr;
+	int				*dc;
 	/*parsing-information*/
 
 }	t_data;
@@ -136,7 +150,10 @@ int		redcrosspressed(t_data *data);
 /*parsing-module*/
 void	do_parsing(t_data *data, int ac, char **av);
 bool	read_file_content(t_data *data, char *file_path);
+void	check_line(t_data *data, char *line, bool *map_found);
 void	clear_parsing_data(t_data *data);
+void	construct_map(t_data *data);
+void	check_for_map(t_data *data);
 /*parsing-module*/
 
 /*utils*/
@@ -144,6 +161,13 @@ int		getcolor(int t, int r, int g, int b);
 void	exit_failure(const char *errmsg);
 bool	check_ext(char *file_name, char *ext);
 void	my_string_free(void **string);
+bool	is_valid_color(t_color *color);
+void	set_directions(t_data *data);
+void	free_directions(t_data *data);
 /*utils*/
+
+/*dumy-math*/
+int		ft_max(int a, int b);
+/*dumy-math*/
 
 #endif

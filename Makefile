@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 00:12:42 by yrhiba            #+#    #+#              #
-#    Updated: 2024/01/12 00:46:17 by yrhiba           ###   ########.fr        #
+#    Updated: 2024/01/12 05:48:21 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,17 @@ SRCS =	main.c \
 		2-mlx-module/events/redcrosspressed.c \
 		3-parsing-module/do_parsing.c \
 		3-parsing-module/read_file_content.c \
+		3-parsing-module/check_line.c \
 		3-parsing-module/clear_parsing_data.c \
+		3-parsing-module/construct_map.c \
+		3-parsing-module/check_for_map.c \
 		A-utils/getcolor.c \
 		A-utils/exit_failure.c \
 		A-utils/check_ext.c \
-		A-utils/my_string_free.c
+		A-utils/my_string_free.c \
+		A-utils/is_valid_color.c \
+		A-utils/dumy_math.c \
+		A-utils/set_and_free_directions.c
 
 INC =	header.h
 
@@ -57,7 +63,7 @@ all :
 $(NAME) : $(OBJS)
 	$(CC) $(FLAGS) $(MLX_DEPENDS) $(OBJS) $(LIBS) -o $(NAME)
 
-%.o : %.c $(INC)
+%.o : %.c $(INC) $(LIBS)
 	$(CC) $(FLAGS) $(OBJS_INCS) -c $< -o $@
 
 clean : clean_libs

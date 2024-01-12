@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 05:20:30 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/06/21 20:36:24 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 01:56:18 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ char	*my_string_sub(char *s, int start, int len)
 		start = 0;
 	if (start >= i || len <= 0)
 		return (my_string_dup(""));
-	if (start + len > i)
-		len = start + (i - start);
+	if (len > (i - start))
+		len = (i - start);
 	r = (char *)malloc(sizeof(char) * (len + 1));
 	if (!r)
 		return (NULL);
 	i = start - 1;
-	while (++i < (len + start))
+	while (++i < (start + len))
 		r[i - start] = s[i];
 	return (r[i - start] = '\0', r);
 }

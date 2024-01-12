@@ -3,38 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   my_string_split_by_first.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rghouzra <rghouzra@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 23:20:39 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/07/05 18:55:53 by rghouzra         ###   ########.fr       */
+/*   Updated: 2024/01/12 02:24:57 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libmystr.h"
 
-static char	**dup_first(char **r, char *s)
+static void	find_spliters_(char *s, char *del, int *indexs)
 {
-	r[0] = my_string_dup(s);
-	if (!r[0])
-		return (free(r), NULL);
-	return (r[1] = NULL, r);
+	int	i;
+
+	i = 0;
+	while (s[i] && my_string_have(del, s[i]))
+		i++;
+	indexs[0] = i;
+	while (s[i])
+	{
+		if (my_string_have(del, s[i]))
+			break;
+		i++;
+	}
+	indexs[1] = i;
+	while (s[i])
+	{
+		if (!my_string_have(del, s[i]))
+			break;
+		i++;
+	}
+	indexs[2] = i;
+	i = my_string_len(s) - 1;
+	while (i >= indexs[2] && my_string_have(del, s[i]))
+		i--;
+	indexs[3] = i + 1;
 }
 
 char	**my_string_split_by_first(char *s, char *del)
 {
 	char	**r;
-	int		index;
+	int		indexs[4];
 	int		tmp;
 
-	r = (char **)malloc(sizeof(char *) * 2);
+	r = (char **)malloc(sizeof(char *) * 3);
 	if (!r)
 		return (NULL);
-	index = my_string_find_first(s, del);
-	if (index == -1)
-		return (dup_first(r, s));
+	r[2] = NULL;
+	find_spliters_(s, del, indexs);
 	tmp = my_string_len(del);
-	r[0] = my_string_sub(s, 0, index);
-	r[1] = my_string_sub(s, index + tmp, my_string_len(s) - (index + tmp));
+	r[0] = my_string_sub(s, indexs[0], indexs[1] - indexs[0]);
+	r[1] = my_string_sub(s, indexs[2], indexs[3] - indexs[2]);
 	if (!r[0])
 		return (my_strings_free_count(&r, 2), NULL);
 	return (r);

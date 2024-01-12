@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clear_parsing_data.c                               :+:      :+:    :+:   */
+/*   is_valid_color.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 00:45:36 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 05:45:01 by yrhiba           ###   ########.fr       */
+/*   Created: 2024/01/12 03:30:18 by yrhiba            #+#    #+#             */
+/*   Updated: 2024/01/12 03:32:11 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "header.h"
 
-void clear_parsing_data(t_data *data)
+bool is_valid_color(t_color *color)
 {
-	free_directions(data);
-	my_list_clear(&(data->map_file_lines), my_string_free);
-	my_list_clear(&(data->map_only_lines), my_string_free);
+	if (color->red < 0 || color->blue < 0 || color->green < 0)
+		return false;
+	if (color->red > 255 || color->blue > 255 || color->green > 255)
+		return false;
+	return true;
 }

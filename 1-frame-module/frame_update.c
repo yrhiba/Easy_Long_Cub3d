@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 02:19:26 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/11 04:48:38 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 01:45:03 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int frame_update(t_data *data)
 
 	/* ########## */
 	// todo: update game frame here
-	frame_fill_with_color(data->frame, getcolor(0, rand()%256,
-		rand()%256, rand()%256));
+	frame_fill_with_color(data->frame, getcolor(0, 0, 0, 0));
 	/*render player*/
 	/* ########## */
 

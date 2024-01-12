@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:36:04 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/11 04:48:36 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/12 04:21:36 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,9 @@ void clear_data(t_data **data)
 	mlx_destroy_window((*data)->mlx, (*data)->win);
 	free((*data)->frame);
 	free((*data)->player);
+	free((*data)->textures.ea_file_path);
+	free((*data)->textures.no_file_path);
+	free((*data)->textures.we_file_path);
+	free((*data)->textures.so_file_path);
 	free((*data));
 }
