@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   frame_render_rect.c                                :+:      :+:    :+:   */
+/*   is_valid_map_pos.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 06:05:33 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/13 00:52:45 by yrhiba           ###   ########.fr       */
+/*   Created: 2024/01/13 02:26:48 by yrhiba            #+#    #+#             */
+/*   Updated: 2024/01/13 04:08:18 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
+# include "header.h"
 
-int	frame_render_rect(t_frame *frame, t_vector pos, int color, t_vector width_height)
+bool is_valid_map_pos(t_data *data, float x, float y)
 {
-	int	x;
-	int	y;
-
-	x = -1;
-	while (++x < width_height.x)
-	{
-		y = -1;
-		while (++y < width_height.y)
-			frame_pixel_put(frame, pos.x + x, pos.y + y, color);
-	}
-	return (0);
+	return (0 <= x && x < (TILE_WIDTH * data->map_width)
+		&& 0 <= y && y < (TILE_HEIGTH * data->map_height));
 }

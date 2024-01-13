@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dumy_math.c                                        :+:      :+:    :+:   */
+/*   render_2dallrays.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 03:41:05 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/13 03:42:08 by yrhiba           ###   ########.fr       */
+/*   Created: 2024/01/13 04:08:43 by yrhiba            #+#    #+#             */
+/*   Updated: 2024/01/13 04:39:40 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "header.h"
 
-int	ft_max(int a, int b)
+void	render_2dallrays(t_data *data)
 {
-	if (a < b)
-		return b;
-	return a;
-}
-
-float normalize_angle(float angle)
-{
-	angle = remainder(angle, 2 * M_PI);
-	if (angle < 0)
-		angle += 2 * M_PI;
-	return (angle);
-}
-
-float distance_between_2points(float x1, float y1, float x2, float y2)
-{
-	return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+	for (int i = 0; i < WIN_WIDTH; i++)
+	{
+		int x = data->player->pos.x + cos(data->rays[i].ray_angle) * data->rays[i].distance;
+		int y = data->player->pos.y + sin(data->rays[i].ray_angle) * data->rays[i].distance;
+		data->rays[i].wall_hit.x = x;
+		data->rays[i].wall_hit.y = y;
+		frame_render_line(data->frame, data->player->pos, data->rays[i].wall_hit, getcolor(0, 220, 0, 30));
+	}
 }

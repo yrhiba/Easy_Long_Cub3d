@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 00:12:42 by yrhiba            #+#    #+#              #
-#    Updated: 2024/01/12 10:34:01 by yrhiba           ###   ########.fr        #
+#    Updated: 2024/01/13 04:12:04 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,9 @@ SRCS =	main.c \
 		3-parsing-module/set_player_data.c \
 		4-game-module/update_player.c \
 		4-game-module/render_2dmap.c \
+		4-game-module/render_2dallrays.c \
+		4-game-module/render_player_in2dmap.c \
+		5-raycasting-module/cast_all_rays.c \
 		A-utils/getcolor.c \
 		A-utils/exit_failure.c \
 		A-utils/check_ext.c \
@@ -40,7 +43,8 @@ SRCS =	main.c \
 		A-utils/is_valid_color.c \
 		A-utils/dumy_math.c \
 		A-utils/set_and_free_directions.c \
-		A-utils/isplauyercolliedwithwall.c
+		A-utils/isplauyercolliedwithwall.c \
+		A-utils/is_valid_map_pos.c
 
 INC =	header.h
 

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 10:38:46 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/13 04:10:45 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,39 @@ typedef struct s_player
 } t_player;
 
 
+typedef struct s_ray
+{
+	float		ray_angle;
+	t_vector	wall_hit;
+	float		distance;
+	bool		was_hit_vertical;
+	float		distance_wallv;
+	bool		was_hit_horizantal;
+	float		distance_wallh;
+	bool		is_facing_up;
+	bool		is_facing_down;
+	bool		is_facing_left;
+	bool		is_facing_right;
+
+	/*cast-ray-vars-utils*/
+	float		xintercept;
+	float		yintercept;
+	float		xstep;
+	float		ystep;
+	float		next_horz_touch_x;
+	float		next_horz_touch_y;
+	float		horz_wall_hit_x;
+	float		horz_wall_hit_y;
+	float		next_vert_touch_x;
+	float		next_vert_touch_y;
+	float		vert_wall_hit_x;
+	float		vert_wall_hit_y;
+	float		x_to_check;
+	float		y_to_check;
+	/*cast-ray-vars-utils*/
+
+}	t_ray;
+
 typedef struct s_data
 {
 	void		*mlx;
@@ -135,6 +168,10 @@ typedef struct s_data
 	t_textures		textures;
 	t_color			floor_color;
 	t_color			ceiling_color;
+
+	/*rays-engine-information*/
+	t_ray			rays[WIN_WIDTH];
+	/*rays-engine-information*/
 
 	/*parsing-information*/
 	t_my_list		*map_file_lines;
@@ -160,7 +197,7 @@ void	frame_pixel_put(t_frame *frame, int x, int y, int color);
 int		frame_fill_with_color(t_frame *frame, int color);
 int		frame_update(t_data *data);
 int		frame_render_rect(t_frame *frame, t_vector pos,
-			int color, int width, int height);
+			int color, t_vector width_height);
 int		frame_render_line(t_frame *frame, t_vector pos1,
 			t_vector pos2, int color);
 /*frame-module*/
@@ -188,8 +225,14 @@ void	set_player_data(t_data *data, int y, int x);
 /*game-module*/
 void	update_player(t_data *data, float deltatime);
 void	render_2dmap(t_data *data);
+void	render_player_in2dmap(t_data *data);
+void	render_2dallrays(t_data *data);
 /*game-module*/
 
+/*raycasting-module*/
+void	cast_all_rays(t_data *data);
+void	cast_ray(t_data *data, int	ray_id);
+/*raycasting-module*/
 
 /*utils*/
 int		getcolor(int t, int r, int g, int b);
@@ -200,6 +243,9 @@ bool	is_valid_color(t_color *color);
 void	set_directions(t_data *data);
 void	free_directions(t_data *data);
 bool	isplauyercolliedwithwall(t_data *data, t_vector player_pos);
+float	normalize_angle(float angle);
+bool	is_valid_map_pos(t_data *data, float x, float y);
+float	distance_between_2points(float x1, float y1, float x2, float y2);
 /*utils*/
 
 /*dumy-math*/
