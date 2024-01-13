@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 00:12:42 by yrhiba            #+#    #+#              #
-#    Updated: 2024/01/13 04:12:04 by yrhiba           ###   ########.fr        #
+#    Updated: 2024/01/13 06:15:43 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS =	main.c \
 		4-game-module/render_2dmap.c \
 		4-game-module/render_2dallrays.c \
 		4-game-module/render_player_in2dmap.c \
+		4-game-module/render_3d_projections.c \
 		5-raycasting-module/cast_all_rays.c \
 		A-utils/getcolor.c \
 		A-utils/exit_failure.c \

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 02:19:26 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/13 04:08:32 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/13 06:16:22 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,10 @@ int frame_update(t_data *data)
 	/* clear the frame */
 
 	/* start rendering */
-	render_2dmap(data);
-	render_2dallrays(data);
-	render_player_in2dmap(data);
+	// render_2dmap(data);
+	// render_2dallrays(data);
+	// render_player_in2dmap(data);
+	render_3d_projections(data);
 	/* start rendering */
 
 	mlx_clear_window(data->mlx, data->win);

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/13 04:10:45 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/13 06:24:40 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,6 +148,13 @@ typedef struct s_ray
 	float		y_to_check;
 	/*cast-ray-vars-utils*/
 
+	/*project-wall-utils*/
+	float		correct_wall_dis;
+	float		wall_height;
+	float		start_row;
+	float		end_row;
+	/*project-wall-utils*/
+
 }	t_ray;
 
 typedef struct s_data
@@ -227,6 +234,7 @@ void	update_player(t_data *data, float deltatime);
 void	render_2dmap(t_data *data);
 void	render_player_in2dmap(t_data *data);
 void	render_2dallrays(t_data *data);
+void	render_3d_projections(t_data *data);
 /*game-module*/
 
 /*raycasting-module*/
