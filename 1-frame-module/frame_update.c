@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 02:19:26 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 02:49:00 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 03:53:11 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,16 @@ int frame_update(t_data *data)
 	reneder_minmap(data);
 	/*minmap*/
 
+	/* update frame */
 	mlx_clear_window(data->mlx, data->win);
 	mlx_put_image_to_window(data->mlx, data->win, data->frame->img, 0, 0);
 	gettimeofday(&(data->lastframetime), NULL);
+	/* update frame */
+
+	/*add game info */
+	render_footer(data);
+	/*add game info */
+
+	data->frame_count += 1;
 	return (0);
 }

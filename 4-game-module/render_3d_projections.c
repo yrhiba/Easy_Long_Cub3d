@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 06:06:05 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 02:54:37 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 03:14:42 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ void render_3d_projections(t_data *data)
 		end.y = data->rays[i].end_row;
 		end.x = i;
 
-		frame_render_line(data->frame, start, end, getcolor(0, 255, 255, 255));
+		frame_render_line(data->frame, start, end, getcolor(20, 255, 255, 255));
 	}
 }

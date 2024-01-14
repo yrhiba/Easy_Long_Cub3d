@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:36:04 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 07:40:40 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 03:43:16 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,8 @@ void init_data(t_data **data)
 	(*data)->player_count = 0;
 	(*data)->zero_count = 0;
 	(*data)->one_count = 0;
+	(*data)->fps_counted = 0;
+	(*data)->frame_count = 30;
+	(*data)->fs = NULL;
+	gettimeofday(&((*data)->stime), NULL);
 }

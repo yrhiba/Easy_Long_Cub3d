@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 02:37:10 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 04:04:08 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 /* KEYS MACROS */
 
 /* GAME MACROS */
-# define FPS 30
+# define FPS 24
 # define FRAME_MS_TIME (1000.0f / FPS)
 
 # define MIN_MAP_WIDTH 5
@@ -196,6 +196,13 @@ typedef struct s_data
 	int				*dc;
 	/*parsing-information*/
 
+	/*engine-info*/
+	int		frame_count;
+	struct	timeval	stime;
+	int		fps_counted;
+	char	*fs;
+	/*engine-info*/
+
 }	t_data;
 
 /* data-module */
@@ -241,6 +248,7 @@ void	render_2dallrays(t_data *data);
 void	render_3d_projections(t_data *data);
 void	reneder_minmap(t_data *data);
 void	render_floor_cilling(t_data *data);
+void	render_footer(t_data *data);
 /*game-module*/
 
 /*raycasting-module*/

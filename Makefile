@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 00:12:42 by yrhiba            #+#    #+#              #
-#    Updated: 2024/01/14 02:37:08 by yrhiba           ###   ########.fr        #
+#    Updated: 2024/01/14 03:25:58 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRCS =	main.c \
 		4-game-module/render_3d_projections.c \
 		4-game-module/reneder_minmap.c \
 		4-game-module/render_floor_cilling.c \
+		4-game-module/render_footer.c \
 		5-raycasting-module/cast_all_rays.c \
 		A-utils/getcolor.c \
 		A-utils/exit_failure.c \
