@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 10:00:44 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 10:34:32 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 10:39:28 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,16 @@ void update_player(t_data *data, float deltatime)
 	t_vector	new_player_pos;
 
 	data->player->rotation_angle += data->player->turn_direction * data->player->turn_speed * deltatime;
+
 	move_step = data->player->walk_speed * deltatime * data->player->walk_direction;
 	new_player_pos.x = data->player->pos.x + round(cos(data->player->rotation_angle) * move_step);
 	new_player_pos.y = data->player->pos.y + round(sin(data->player->rotation_angle) * move_step);
+
 	if (isplauyercolliedwithwall(data, new_player_pos))
 		return ;
+
 	data->player->pos.x = new_player_pos.x;
 	data->player->pos.y = new_player_pos.y;
+
+	data->player->rotation_angle += (M_PI / 2 * data->player->look_direction);
 }

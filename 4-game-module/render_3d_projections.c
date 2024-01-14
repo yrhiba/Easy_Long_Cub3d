@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 06:06:05 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 03:14:42 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 10:35:14 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void render_3d_projections(t_data *data)
 {
 	int i;
 
-	// renderCeiling();
-	// renderFloor();
 	i = -1;
 	while (++i < WIN_WIDTH)
 	{

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 00:42:26 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 10:11:30 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 10:18:56 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,16 @@ int keypressdown(int keycode, t_data *data)
 	if (keycode == ESC_KEY)
 		redcrosspressed(data);
 	if (keycode == RIGHT_KEY)
-		data->player->turn_direction = +1;
+		data->player->look_direction = +1;
 	if (keycode == LEFT_KEY)
-		data->player->turn_direction = -1;
-	if (keycode == UP_KEY)
+		data->player->look_direction = -1;
+	if (keycode == W_KEY)
 		data->player->walk_direction = +1;
-	if (keycode == DOWN_KEY)
+	if (keycode == S_KEY)
 		data->player->walk_direction = -1;
+	if (keycode == D_KEY)
+		data->player->turn_direction = +1;
+	if (keycode == A_KEY)
+		data->player->turn_direction = -1;
 	return (0);
 }

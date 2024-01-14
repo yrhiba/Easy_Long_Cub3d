@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 08:13:29 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 10:21:41 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 10:50:35 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	set_player_data(t_data *data, int y, int x)
 	data->player->pos.y = (y * TILE_HEIGTH) + (TILE_HEIGTH / 2);
 	data->player->turn_direction = 0;
 	data->player->walk_direction = 0;
+	data->player->look_direction = 0;
 	data->player->turn_speed = 45 * (M_PI / 180);
 	data->player->walk_speed = 150;
 	if (data->map[y][x] == 'N')

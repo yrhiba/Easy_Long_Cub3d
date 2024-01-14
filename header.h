@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 09:31:23 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 10:45:34 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@
 # define LEFT_KEY 123
 # define UP_KEY 126
 # define DOWN_KEY 125
+# define S_KEY 1
+# define W_KEY 13
+# define A_KEY 0
+# define D_KEY 2
 /* KEYS MACROS */
 
 /* GAME MACROS */
@@ -115,6 +119,7 @@ typedef struct s_player
 {
 	t_vector	pos;
 	t_vector	minmap_pos;
+	int			look_direction;
 	int			turn_direction; // -1 or 1 | left or right
 	int			walk_direction; // -1 or 1 | backward or forward
 	float		rotation_angle; // current angle
