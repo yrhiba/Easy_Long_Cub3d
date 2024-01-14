@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 04:04:08 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 08:56:01 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ typedef struct	s_frame
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		width;
+	int		height;
 
 }				t_frame;
 
@@ -203,6 +205,13 @@ typedef struct s_data
 	char	*fs;
 	/*engine-info*/
 
+	/*textures*/
+	t_frame		no_tex;
+	t_frame		so_tex;
+	t_frame		ea_tex;
+	t_frame		we_tex;
+	/*textures*/
+
 }	t_data;
 
 /* data-module */
@@ -238,6 +247,7 @@ void	clear_parsing_data(t_data *data);
 void	construct_map(t_data *data);
 void	check_for_map(t_data *data);
 void	set_player_data(t_data *data, int y, int x);
+void	load_textures(t_data *data);
 /*parsing-module*/
 
 /*game-module*/

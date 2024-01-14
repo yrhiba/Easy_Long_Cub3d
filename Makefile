@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 00:12:42 by yrhiba            #+#    #+#              #
-#    Updated: 2024/01/14 03:25:58 by yrhiba           ###   ########.fr        #
+#    Updated: 2024/01/14 09:03:04 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS =	main.c \
 		3-parsing-module/construct_map.c \
 		3-parsing-module/check_for_map.c \
 		3-parsing-module/set_player_data.c \
+		3-parsing-module/load_textures.c \
 		4-game-module/update_player.c \
 		4-game-module/render_2dmap.c \
 		4-game-module/render_2dallrays.c \
@@ -68,7 +69,7 @@ OBJS = $(SRCS:.c=.o)
 
 CC = cc
 
-FLAGS = -Wall -Wextra
+FLAGS = -Wall -Wextra -g -fsanitize=address
 
 MLX_DEPENDS = -lm -lmlx -framework OpenGL -framework AppKit
 

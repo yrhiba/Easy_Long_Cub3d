@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:08:33 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 10:00:21 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 09:07:08 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int		main(int ac, char **av)
 	ParsingDebug(data);
 	#endif
 	init_mlx(data);
+	load_textures(data);
 	mlx_hook(data->win, ON_KEYDOWN, 0, keypressdown, data);
 	mlx_hook(data->win, ON_KEYUP, 0, keypressdup, data);
 	mlx_hook(data->win, ON_DESTROY, 0, redcrosspressed, data);
