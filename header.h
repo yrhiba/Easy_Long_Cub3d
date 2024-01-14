@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 08:56:01 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 09:20:38 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@
 
 # define TILE_WIDTH 50
 # define TILE_HEIGTH 50
+# define TILE_SIZE 50
 
 # define FOV (60 * (M_PI / 180))
 
