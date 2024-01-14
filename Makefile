@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 00:12:42 by yrhiba            #+#    #+#              #
-#    Updated: 2024/01/14 09:27:10 by yrhiba           ###   ########.fr        #
+#    Updated: 2024/01/14 11:58:36 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS =	main.c \
 		1-frame-module/frame_update.c \
 		1-frame-module/frame_render_rect.c \
 		1-frame-module/frame_render_line.c \
+		1-frame-module/frame_get_color.c \
 		2-mlx-module/init_mlx.c \
 		2-mlx-module/events/keypressdown.c \
 		2-mlx-module/events/keypressdup.c \

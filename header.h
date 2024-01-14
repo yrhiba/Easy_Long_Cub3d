@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 10:45:34 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 13:04:41 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,6 +165,9 @@ typedef struct s_ray
 	float		wall_height;
 	float		start_row;
 	float		end_row;
+	t_frame		*tex;
+	int			texture_x;
+	int			texture_y;
 	/*project-wall-utils*/
 
 }	t_ray;
@@ -233,6 +236,7 @@ int		frame_render_rect(t_frame *frame, t_vector pos,
 			int color, t_vector width_height);
 int		frame_render_line(t_frame *frame, t_vector pos1,
 			t_vector pos2, int color);
+int		frame_get_color(t_frame *frame, int i, int j);
 /*frame-module*/
 
 /*mlx-module*/
