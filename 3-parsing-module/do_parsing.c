@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 05:03:39 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 08:12:59 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 00:23:30 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,23 @@ void	pushing_map_lines(t_data *data, t_my_list **it)
 	}
 }
 
+void allocat_minmap(t_data *data)
+{
+	int	i;
+
+	data->mini_map = (char **)malloc(sizeof(char *)
+			* (TILE_HEIGTH * MINMAP_HEIGHT * MINMAP_FACTOR));
+	if (!(data->mini_map))
+		exit_failure("allocat_minmap::malloc::failed");
+	i = -1;
+	while (++i < MINMAP_HEIGHT)
+	{
+		data->mini_map[i] = (char *)malloc(sizeof(char) * (TILE_WIDTH * MINMAP_WIDTH * MINMAP_FACTOR));
+		if (!(data->mini_map[i]))
+			exit_failure("allocat_minmap::malloc::failed");
+	}
+}
+
 void	do_parsing(t_data *data, int ac, char **av)
 {
 	t_my_list	*it;
@@ -79,5 +96,6 @@ void	do_parsing(t_data *data, int ac, char **av)
 	construct_map(data);
 	set_directions(data);
 	check_for_map(data);
+	allocat_minmap(data);
 	clear_parsing_data(data);
 }

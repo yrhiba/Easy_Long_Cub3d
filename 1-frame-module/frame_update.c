@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 02:19:26 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/13 06:16:22 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 02:49:00 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,21 @@ int frame_update(t_data *data)
 	frame_fill_with_color(data->frame, getcolor(0, 0, 0, 0));
 	/* clear the frame */
 
+	/*render-floor-cilling*/
+	render_floor_cilling(data);
+	/*render-floor-cilling*/
+
 	/* start rendering */
 	// render_2dmap(data);
-	// render_2dallrays(data);
+	// render_2dallrays(data); 
 	// render_player_in2dmap(data);
 	render_3d_projections(data);
 	/* start rendering */
+
+	/*minmap*/
+	update_minmap(data);
+	reneder_minmap(data);
+	/*minmap*/
 
 	mlx_clear_window(data->mlx, data->win);
 	mlx_put_image_to_window(data->mlx, data->win, data->frame->img, 0, 0);

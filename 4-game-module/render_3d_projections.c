@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 06:06:05 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/13 06:25:20 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 02:54:37 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ void render_3d_projections(t_data *data)
 		data->rays[i].correct_wall_dis = data->rays[i].distance
 			* cos( data->rays[i].ray_angle - data->player->rotation_angle);
 
-		data->rays[i].wall_height = (TILE_WIDTH / data->rays[i].correct_wall_dis)
+		if (data->rays[i].correct_wall_dis < 1e-6)
+			data->rays[i].wall_height = WIN_HEIGHT;
+		else
+			data->rays[i].wall_height = (TILE_HEIGTH / data->rays[i].correct_wall_dis)
 								* ((WIN_WIDTH / 2) / tan(FOV / 2));
 
 

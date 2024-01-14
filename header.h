@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/13 06:24:40 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/14 02:37:10 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,9 @@
 
 # define FOV (60 * (M_PI / 180))
 
+# define MINMAP_HEIGHT 14
+# define MINMAP_WIDTH 24
+# define MINMAP_FACTOR 0.3
 /* GAME MACROS */
 
 typedef struct	s_frame
@@ -108,6 +111,7 @@ typedef struct s_vector
 typedef struct s_player
 {
 	t_vector	pos;
+	t_vector	minmap_pos;
 	int			turn_direction; // -1 or 1 | left or right
 	int			walk_direction; // -1 or 1 | backward or forward
 	float		rotation_angle; // current angle
@@ -235,6 +239,8 @@ void	render_2dmap(t_data *data);
 void	render_player_in2dmap(t_data *data);
 void	render_2dallrays(t_data *data);
 void	render_3d_projections(t_data *data);
+void	reneder_minmap(t_data *data);
+void	render_floor_cilling(t_data *data);
 /*game-module*/
 
 /*raycasting-module*/
@@ -254,6 +260,7 @@ bool	isplauyercolliedwithwall(t_data *data, t_vector player_pos);
 float	normalize_angle(float angle);
 bool	is_valid_map_pos(t_data *data, float x, float y);
 float	distance_between_2points(float x1, float y1, float x2, float y2);
+void	update_minmap(t_data *data);
 /*utils*/
 
 /*dumy-math*/
