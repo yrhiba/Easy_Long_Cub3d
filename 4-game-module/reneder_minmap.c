@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 00:07:07 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/15 11:19:32 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 11:47:26 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void render_minmap_player(t_data *data)
 	s.y = player_size;
 	pos.x = data->player->minmap_pos.x - (player_size/2);
 	pos.y = data->player->minmap_pos.y - (player_size/2);
-	vel.x = data->player->minmap_pos.x + round(cos(data->player->rotation_angle - (M_PI * 0.5 * data->player->look_direction)) * (20 * MINMAP_FACTOR));
-	vel.y = data->player->minmap_pos.y + round(sin(data->player->rotation_angle - (M_PI * 0.5 * data->player->look_direction)) * (20 * MINMAP_FACTOR));
+	vel.x = data->player->minmap_pos.x + round(cos(data->player->rotation_angle - (FOV * 0.5 * data->player->look_direction)) * (70 * MINMAP_FACTOR));
+	vel.y = data->player->minmap_pos.y + round(sin(data->player->rotation_angle - (FOV * 0.5 * data->player->look_direction)) * (70 * MINMAP_FACTOR));
 	frame_render_rect(data->frame, pos, getcolor(0, 0, 220, 30), s);
 	frame_render_line(data->frame, data->player->minmap_pos, vel, getcolor(0, 0, 0, 255));
 	render_minmap_fov(data);
