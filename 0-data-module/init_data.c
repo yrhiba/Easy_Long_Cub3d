@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:36:04 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/15 09:41:40 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 20:28:11 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void init_data(t_data **data)
 	(*data)->invalid_count = 0;
 	(*data)->fps_counted = 0;
 	(*data)->frame_count = 30;
+	(*data)->mouse_on = 0;
+	(*data)->lastmouse = 0;
 	(*data)->fs = NULL;
 	(*data)->doors = NULL;
 	gettimeofday(&((*data)->lastframetime), NULL);

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/15 17:21:06 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 21:29:48 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -269,6 +269,11 @@ typedef struct s_data
 	t_my_list		*doors;
 	/*doors*/
 
+	/*mouse-turn*/
+	bool	mouse_on;
+	int		lastmouse;
+	/*mouse-turn*/
+
 }	t_data;
 
 /* data-module */
@@ -296,6 +301,9 @@ void	init_mlx(t_data *data);
 /*mlx-events*/
 int		keypressdown(int keycode, t_data *data);
 int		keypressdup(int keycode, t_data *data);
+int		mousemove(int x, int y, t_data *data);
+int		mousedown(int button, int x, int y, t_data *data);
+int		mouseup(int button, int x, int y, t_data *data);
 int		redcrosspressed(t_data *data);
 /*mlx-events*/
 

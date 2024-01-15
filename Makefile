@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 00:12:42 by yrhiba            #+#    #+#              #
-#    Updated: 2024/01/15 16:53:44 by yrhiba           ###   ########.fr        #
+#    Updated: 2024/01/15 20:10:20 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,9 @@ SRCS =	main.c \
 		2-mlx-module/events/keypressdown.c \
 		2-mlx-module/events/keypressdup.c \
 		2-mlx-module/events/redcrosspressed.c \
+		2-mlx-module/events/mousemove.c \
+		2-mlx-module/events/mousedown.c \
+		2-mlx-module/events/mouseup.c \
 		3-parsing-module/do_parsing.c \
 		3-parsing-module/read_file_content.c \
 		3-parsing-module/check_line.c \
