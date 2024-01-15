@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 14:43:01 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/15 17:07:54 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 17:10:06 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,15 @@ void	update_sprites(t_data *data, float deltatime)
 	{
 		update_sprite(data->cloud + i, deltatime);
 		x++;
-		if (x * SPRITE_SEP > WIN_WIDTH && !y)
+		if (x * SPRITE_SEP > WIN_WIDTH)
 		{
-			x = 0;
-			y += 1;
+			if (!y)
+			{
+				x = 0;
+				y += 1;
+			}
+			else
+				break;
 		}
-		else
-			break;
 	}
 }

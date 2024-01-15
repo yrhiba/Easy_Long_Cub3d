@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 15:02:09 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/15 16:44:36 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 17:12:25 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	frame_render_sprite(t_data *data, int x, int y)
 	double	dis;
 
 	p.y = -1;
-	printf("%d, %d\n",data->sprite.height, data->sprite.width );
 	while (++p.y < data->sprite.height)
 	{
 		p.x = -1;
