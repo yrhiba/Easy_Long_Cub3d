@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/15 17:02:13 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 17:21:06 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,15 @@
 /*N-S-W-E*/
 
 /* WINDOW MACROS */
-# define WIN_WIDTH 1500
-# define WIN_HEIGHT 810
+# define WIN_WIDTH 1910
+# define WIN_HEIGHT 1080
 # define FOOTER_HEIGHT 0
 # define WIN_TITLE "Easy-long-cub3d"
 /* WINDOW MACROS */
 
 /*animated-sprite*/
 # define SPRITE_PATH "./D-textures/cloud.xpm"
-# define SPRITE_COUNT (WIN_WIDTH * 2 / SPRITE_SEP + 1)
+# define SPRITE_COUNT 30
 # define SPRITE_SEP 150
 /*animated-sprite*/
 
