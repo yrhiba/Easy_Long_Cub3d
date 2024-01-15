@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/15 11:30:08 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 17:02:13 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # include "my_list.h"
 # include "get_next_line.h"
 
+
 /*N-S-W-E*/
 # define S 0
 # define N 1
@@ -40,11 +41,17 @@
 /*N-S-W-E*/
 
 /* WINDOW MACROS */
-# define WIN_WIDTH 1920
-# define WIN_HEIGHT 1080
+# define WIN_WIDTH 1500
+# define WIN_HEIGHT 810
 # define FOOTER_HEIGHT 0
 # define WIN_TITLE "Easy-long-cub3d"
 /* WINDOW MACROS */
+
+/*animated-sprite*/
+# define SPRITE_PATH "./D-textures/cloud.xpm"
+# define SPRITE_COUNT (WIN_WIDTH * 2 / SPRITE_SEP + 1)
+# define SPRITE_SEP 150
+/*animated-sprite*/
 
 /* EVENTS MACROS */
 # define ON_KEYDOWN 2
@@ -83,7 +90,7 @@
 
 # define MINMAP_HEIGHT 14
 # define MINMAP_WIDTH 24
-# define MINMAP_FACTOR 0.3
+# define MINMAP_FACTOR 0.2
 /* GAME MACROS */
 
 typedef struct	s_frame
@@ -136,6 +143,15 @@ typedef struct s_player
  
 } t_player;
 
+
+typedef struct s_sprite
+{
+	int		x;
+	int		y;
+	int		vx;
+	int		vy;
+
+}	t_sprite;
 
 typedef struct s_ray
 {
@@ -244,6 +260,11 @@ typedef struct s_data
 	t_frame		door_tex;
 	/*textures*/
 
+	/*sprite*/
+	t_sprite	cloud[SPRITE_COUNT];
+	t_frame		sprite;
+	/*sprite*/
+
 	/*doors*/
 	t_my_list		*doors;
 	/*doors*/
@@ -253,6 +274,7 @@ typedef struct s_data
 /* data-module */
 void	init_data(t_data **data);
 void	clear_data(t_data **data);
+void	init_sprites(t_data *data);
 /* data-module */
 
 /*frame-module*/
@@ -264,6 +286,7 @@ int		frame_render_rect(t_frame *frame, t_vector pos,
 int		frame_render_line(t_frame *frame, t_vector pos1,
 			t_vector pos2, int color);
 int		frame_get_color(t_frame *frame, int i, int j);
+void	frame_render_sprite(t_data *data, int x, int y);
 /*frame-module*/
 
 /*mlx-module*/
@@ -288,6 +311,7 @@ void	load_textures(t_data *data);
 /*parsing-module*/
 
 /*game-module*/
+void	update_sprites(t_data *data, float deltatime);
 void	update_player(t_data *data, float deltatime);
 void	update_doors(t_data *data);
 void	render_2dmap(t_data *data);
@@ -297,6 +321,7 @@ void	render_3d_projections(t_data *data);
 void	reneder_minmap(t_data *data);
 void	render_floor_cilling(t_data *data);
 void	render_footer(t_data *data);
+void	render_sprites(t_data *data);
 /*game-module*/
 
 /*raycasting-module*/

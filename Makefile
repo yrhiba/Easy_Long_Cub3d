@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 00:12:42 by yrhiba            #+#    #+#              #
-#    Updated: 2024/01/15 11:18:19 by yrhiba           ###   ########.fr        #
+#    Updated: 2024/01/15 16:53:44 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,14 @@ NAME = cub3d
 SRCS =	main.c \
 		0-data-module/init_data.c \
 		0-data-module/clear_data.c \
+		0-data-module/init_sprites.c \
 		1-frame-module/frame_pixel_put.c \
 		1-frame-module/frame_fill_with_color.c \
 		1-frame-module/frame_update.c \
 		1-frame-module/frame_render_rect.c \
 		1-frame-module/frame_render_line.c \
 		1-frame-module/frame_get_color.c \
+		1-frame-module/frame_render_sprite.c \
 		2-mlx-module/init_mlx.c \
 		2-mlx-module/events/keypressdown.c \
 		2-mlx-module/events/keypressdup.c \
@@ -34,6 +36,9 @@ SRCS =	main.c \
 		3-parsing-module/set_player_data.c \
 		3-parsing-module/load_textures.c \
 		4-game-module/update_player.c \
+		4-game-module/update_sprites.c \
+		4-game-module/update_minmap.c \
+		4-game-module/update_doors.c \
 		4-game-module/render_2dmap.c \
 		4-game-module/render_2dallrays.c \
 		4-game-module/render_player_in2dmap.c \
@@ -41,8 +46,7 @@ SRCS =	main.c \
 		4-game-module/reneder_minmap.c \
 		4-game-module/render_floor_cilling.c \
 		4-game-module/render_footer.c \
-		4-game-module/update_minmap.c \
-		4-game-module/update_doors.c \
+		4-game-module/render_sprites.c \
 		5-raycasting-module/cast_all_rays.c \
 		A-utils/getcolor.c \
 		A-utils/exit_failure.c \
@@ -72,7 +76,7 @@ OBJS = $(SRCS:.c=.o)
 
 CC = cc
 
-FLAGS = -Wall -Wextra -g -fsanitize=address
+FLAGS = -Wall -Wextra #-g -fsanitize=address
 
 MLX_DEPENDS = -lm -lmlx -framework OpenGL -framework AppKit
 

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 02:19:26 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/15 12:43:59 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 16:38:18 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int frame_update(t_data *data)
 	float deltatime = timepassedms / 1000.0f;
 
 	/* update player */
+	update_sprites(data, deltatime);
 	update_player(data, deltatime);
 	update_doors(data);
 	/* update player */
@@ -40,6 +41,7 @@ int frame_update(t_data *data)
 
 	/*render*/
 	render_floor_cilling(data);
+	render_sprites(data);
 	render_3d_projections(data);
 	reneder_minmap(data);
 	/*render*/
