@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:36:04 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 04:21:36 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 10:33:53 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void clear_data(t_data **data)
 {
+	my_list_clear(&((*data)->doors), clear_door);
 	mlx_clear_window((*data)->mlx, (*data)->win);
 	mlx_destroy_image((*data)->mlx, (*data)->frame->img);
 	mlx_destroy_window((*data)->mlx, (*data)->win);

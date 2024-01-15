@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 02:36:41 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 07:54:14 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 09:27:33 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ bool check_map_start(char **parts)
 		&& my_string_compare(parts[0], "EA") != LS_EQUAL
 		&& my_string_compare(parts[0], "F") != LS_EQUAL
 		&& my_string_compare(parts[0], "C") != LS_EQUAL
+		&& my_string_compare(parts[0], "DOOR") != LS_EQUAL
 		&& my_string_len(parts[0]) > 0
 	);
 }
@@ -53,6 +54,14 @@ void check_ea_var(t_data *data, char **parts)
 	if (my_string_compare(parts[0], "EA") != LS_EQUAL)
 		return ;
 	if (my_string_update(&(data->textures.ea_file_path), parts[1]) == -1)
+		exit_failure("check_ea_var::my_string_update::failed");
+}
+
+void check_door_var(t_data *data, char **parts)
+{
+	if (my_string_compare(parts[0], "DOOR") != LS_EQUAL)
+		return ;
+	if (my_string_update(&(data->textures.door_file_path), parts[1]) == -1)
 		exit_failure("check_ea_var::my_string_update::failed");
 }
 
@@ -116,5 +125,6 @@ void check_line(t_data *data, char *line, bool *map_found)
 	check_ea_var(data, parts);
 	check_f_var(data, parts);
 	check_c_var(data, parts);
+	check_door_var(data, parts);
 	my_strings_free(&parts);
 }

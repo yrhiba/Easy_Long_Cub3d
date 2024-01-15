@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 01:04:29 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/13 04:45:17 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 10:48:16 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ void	set_horiz_intecpet(t_data *data, int ray_id)
 		data->rays[ray_id].y_to_check = data->rays[ray_id].next_horz_touch_y
 			+ (data->rays[ray_id].is_facing_up ? -1 : 0);
 
-		if (data->map[(int)(data->rays[ray_id].y_to_check / TILE_HEIGTH)][(int)(data->rays[ray_id].x_to_check / TILE_WIDTH)] == '1')
+		data->rays[ray_id].hit_h_content = 
+			data->map[(int)(data->rays[ray_id].y_to_check / TILE_HEIGTH)][(int)(data->rays[ray_id].x_to_check / TILE_WIDTH)];
+
+		if (my_string_have("1D", data->rays[ray_id].hit_h_content))
 		{
 			data->rays[ray_id].horz_wall_hit_x = data->rays[ray_id].next_horz_touch_x;
 			data->rays[ray_id].horz_wall_hit_y = data->rays[ray_id].next_horz_touch_y;
@@ -85,7 +88,10 @@ void	set_vertical_intecpet(t_data *data, int ray_id)
 				+ (data->rays[ray_id].is_facing_left ? -1 : 0);
 		data->rays[ray_id].y_to_check = data->rays[ray_id].next_vert_touch_y;
 
-		if (data->map[(int)(data->rays[ray_id].y_to_check / TILE_HEIGTH)][(int)(data->rays[ray_id].x_to_check / TILE_WIDTH)] == '1')
+		data->rays[ray_id].hit_v_content = 
+			data->map[(int)(data->rays[ray_id].y_to_check / TILE_HEIGTH)][(int)(data->rays[ray_id].x_to_check / TILE_WIDTH)];
+
+		if (my_string_have("1D", data->rays[ray_id].hit_v_content))
 		{
 			data->rays[ray_id].vert_wall_hit_x = data->rays[ray_id].next_vert_touch_x;
 			data->rays[ray_id].vert_wall_hit_y = data->rays[ray_id].next_vert_touch_y;
@@ -142,6 +148,11 @@ void	cast_ray(t_data *data, int	ray_id)
 			data->rays[ray_id].was_hit_horizantal = false;
 		}
 	}
+
+	if (data->rays[ray_id].was_hit_horizantal)
+		data->rays[ray_id].hit_content = data->rays[ray_id].hit_h_content;
+	else
+		data->rays[ray_id].hit_content = data->rays[ray_id].hit_v_content;
 }
 
 void	cast_all_rays(t_data *data)

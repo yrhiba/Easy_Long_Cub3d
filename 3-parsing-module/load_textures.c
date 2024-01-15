@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 08:45:37 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 09:16:36 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 10:51:57 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 void	check_textures(t_data *data)
 {
 	if (!data->so_tex.img || !data->no_tex.img 
-		|| !data->we_tex.img || !data->ea_tex.img)
-		exit_failure("load_textures::failed");
+		|| !data->we_tex.img || !data->ea_tex.img
+		|| !data->door_tex.img)
+			exit_failure("load_textures::failed");
 }
 
 void	set_textures_data(t_data *data)
@@ -41,13 +42,19 @@ void	set_textures_data(t_data *data)
 		&(data->ea_tex.line_length),
 		&(data->ea_tex.endian)
 	);
+	data->door_tex.addr = mlx_get_data_addr(data->door_tex.img,
+		&(data->door_tex.bits_per_pixel),
+		&(data->door_tex.line_length),
+		&(data->door_tex.endian)
+	);
 }
 
 void	check_textures_data(t_data *data)
 {
 	if (!data->so_tex.addr || !data->no_tex.addr 
-		|| !data->we_tex.addr || !data->ea_tex.addr)
-		exit_failure("load_textures::failed");
+		|| !data->we_tex.addr || !data->ea_tex.addr 
+		|| !data->door_tex.addr)
+			exit_failure("load_textures::failed");
 }
 
 void	load_textures(t_data *data)
@@ -75,6 +82,12 @@ void	load_textures(t_data *data)
 		data->textures.ea_file_path,
 		&(data->ea_tex.width),
 		&(data->ea_tex.height)
+	);
+	data->door_tex.img = mlx_xpm_file_to_image(
+		data->mlx,
+		data->textures.door_file_path,
+		&(data->door_tex.width),
+		&(data->door_tex.height)
 	);
 	check_textures(data);
 	set_textures_data(data);

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:36:04 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 10:45:01 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 09:41:40 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,18 @@ void init_data(t_data **data)
 	(*data)->textures.no_file_path = NULL;
 	(*data)->textures.we_file_path = NULL;
 	(*data)->textures.so_file_path = NULL;
-	gettimeofday(&((*data)->lastframetime), NULL);
+	(*data)->textures.door_file_path = NULL;
 	(*data)->ceiling_color_given = false;
 	(*data)->floor_color_given = false;
 	(*data)->player_count = 0;
+	(*data)->door_count = 0;
 	(*data)->zero_count = 0;
 	(*data)->one_count = 0;
+	(*data)->invalid_count = 0;
 	(*data)->fps_counted = 0;
 	(*data)->frame_count = 30;
 	(*data)->fs = NULL;
+	(*data)->doors = NULL;
+	gettimeofday(&((*data)->lastframetime), NULL);
 	gettimeofday(&((*data)->stime), NULL);
 }

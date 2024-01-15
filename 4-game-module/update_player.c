@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 10:00:44 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 10:39:28 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 11:25:50 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void update_player(t_data *data, float deltatime)
 	data->player->pos.x = new_player_pos.x;
 	data->player->pos.y = new_player_pos.y;
 
-	data->player->rotation_angle += (M_PI / 2 * data->player->look_direction);
+	data->player->rotation_angle += (FOV * 0.5 * data->player->look_direction);
 }

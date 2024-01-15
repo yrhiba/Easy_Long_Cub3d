@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 05:03:39 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 00:23:30 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 09:28:44 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void check_for_vars(t_data *data)
 		|| !(data->textures.ea_file_path)
 		|| !(data->textures.so_file_path)
 		|| !(data->textures.we_file_path)
+		|| !(data->textures.door_file_path)
 		|| !(data->textures.no_file_path))
 			exit_failure("check_for_vars::vars missing in the file");
 }

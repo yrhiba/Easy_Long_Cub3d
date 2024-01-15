@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 00:07:07 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 10:44:48 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 11:19:32 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,10 @@ void	reneder_minmap(t_data *data)
 				color = getcolor(0, 255, 255, 255);
 			else if (data->mini_map[pos.y][pos.x] == '1')
 				color = getcolor(0, 0, 0, 0);
+			else if (data->mini_map[pos.y][pos.x] == 'D')
+				color = getcolor(0, 150, 150, 150);
+			else if (data->mini_map[pos.y][pos.x] == 'd')
+				color = getcolor(0, 0, 150, 150);
 			g.x = round((pos.x + 1) * TILE_WIDTH * MINMAP_FACTOR);
 			g.y = round((pos.y + 1) * TILE_HEIGTH * MINMAP_FACTOR);
 			frame_render_rect(data->frame, g, color, s);

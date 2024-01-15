@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:03:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 13:04:41 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 11:30:08 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@
 # include "libmystr.h"
 # include "my_list.h"
 # include "get_next_line.h"
+
+/*N-S-W-E*/
+# define S 0
+# define N 1
+# define E 2
+# define W 3
+/*N-S-W-E*/
 
 /* WINDOW MACROS */
 # define WIN_WIDTH 1920
@@ -97,6 +104,7 @@ typedef struct s_textures
 	char		*so_file_path;
 	char		*we_file_path;
 	char		*ea_file_path;
+	char		*door_file_path;
 
 }				t_textures;
 
@@ -142,6 +150,9 @@ typedef struct s_ray
 	bool		is_facing_down;
 	bool		is_facing_left;
 	bool		is_facing_right;
+	char		hit_content;
+	char		hit_v_content;
+	char		hit_h_content;
 
 	/*cast-ray-vars-utils*/
 	float		xintercept;
@@ -171,6 +182,15 @@ typedef struct s_ray
 	/*project-wall-utils*/
 
 }	t_ray;
+
+typedef	struct s_door
+{
+	int		x;
+	int		y;
+	char	adj[4];
+
+}	t_door;
+
 
 typedef struct s_data
 {
@@ -203,6 +223,8 @@ typedef struct s_data
 	int				player_count;
 	int				zero_count;
 	int				one_count;
+	int				door_count;
+	int				invalid_count;
 	int				*dr;
 	int				*dc;
 	/*parsing-information*/
@@ -219,7 +241,12 @@ typedef struct s_data
 	t_frame		so_tex;
 	t_frame		ea_tex;
 	t_frame		we_tex;
+	t_frame		door_tex;
 	/*textures*/
+
+	/*doors*/
+	t_my_list		*doors;
+	/*doors*/
 
 }	t_data;
 
@@ -262,6 +289,7 @@ void	load_textures(t_data *data);
 
 /*game-module*/
 void	update_player(t_data *data, float deltatime);
+void	update_doors(t_data *data);
 void	render_2dmap(t_data *data);
 void	render_player_in2dmap(t_data *data);
 void	render_2dallrays(t_data *data);
@@ -289,6 +317,8 @@ float	normalize_angle(float angle);
 bool	is_valid_map_pos(t_data *data, float x, float y);
 float	distance_between_2points(float x1, float y1, float x2, float y2);
 void	update_minmap(t_data *data);
+void	add_door(t_data *data, int i, int j);
+void	clear_door(void **door);
 /*utils*/
 
 /*dumy-math*/
