@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 02:19:26 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/15 11:26:38 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 12:43:59 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int frame_update(t_data *data)
 	double timepassedms = (curtime.tv_sec - data->lastframetime.tv_sec) * 1000.0f
 		+ (curtime.tv_usec - data->lastframetime.tv_usec) / 1000.0f;
 
+	if (timepassedms < FRAME_MS_TIME)
+		return (0);
+
 	float deltatime = timepassedms / 1000.0f;
 
 	/* update player */
@@ -31,17 +34,13 @@ int frame_update(t_data *data)
 	cast_all_rays(data);
 	/* cast all rays */
 
-	/* clear the frame */
-	frame_fill_with_color(data->frame, getcolor(0, 0, 0, 0));
-	/* clear the frame */
-
-	/*render-floor-cilling*/
-	render_floor_cilling(data);
-	/*render-floor-cilling*/
+	/*update-minmap*/
+	update_minmap(data);
+	/*update-minmap*/
 
 	/*render*/
+	render_floor_cilling(data);
 	render_3d_projections(data);
-	update_minmap(data);
 	reneder_minmap(data);
 	/*render*/
 

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 08:13:29 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/15 11:34:47 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 13:01:25 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	set_player_data(t_data *data, int y, int x)
 	data->player->turn_direction = 0;
 	data->player->walk_direction = 0;
 	data->player->look_direction = 0;
-	data->player->turn_speed = 110 * (M_PI / 180);
-	data->player->walk_speed = 300;
+	data->player->turn_speed = 150 * (M_PI / 180);
+	data->player->walk_speed = 250;
 	if (data->map[y][x] == 'N')
 		data->player->rotation_angle = -90 * (M_PI / 180);
 	if (data->map[y][x] == 'S')

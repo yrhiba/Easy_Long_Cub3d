@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 23:08:33 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/14 09:07:08 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/15 12:23:44 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void ParsingDebug(t_data *data)
 	for (int i = 0; i < data->map_height; i++)
 	{
 		for (int j = 0; j < data->map_width; j++)
-			printf("%c", data->map[i][j]);
+			printf("%c", data->map[i][j]); // 0 1
 		printf("\n");
 	}
 	printf("h:%d, w:%d\n", data->map_height, data->map_width);
