@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 02:36:41 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/15 09:27:33 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/16 11:34:49 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void check_no_var(t_data *data, char **parts)
 {
 	if (my_string_compare(parts[0], "NO") != LS_EQUAL)
 		return ;
+	if (data->textures.no_file_path)
+		exit_failure("check_no_var::double key");
 	if (my_string_update(&(data->textures.no_file_path), parts[1]) == -1)
 		exit_failure("check_no_var::my_string_update::failed");
 }
@@ -37,6 +39,8 @@ void check_so_var(t_data *data, char **parts)
 {
 	if (my_string_compare(parts[0], "SO") != LS_EQUAL)
 		return ;
+	if (data->textures.so_file_path)
+		exit_failure("check_no_var::double key");
 	if (my_string_update(&(data->textures.so_file_path), parts[1]) == -1)
 		exit_failure("check_so_var::my_string_update::failed");
 }
@@ -45,6 +49,8 @@ void check_we_var(t_data *data, char **parts)
 {
 	if (my_string_compare(parts[0], "WE") != LS_EQUAL)
 		return ;
+	if (data->textures.we_file_path)
+		exit_failure("check_no_var::double key");
 	if (my_string_update(&(data->textures.we_file_path), parts[1]) == -1)
 		exit_failure("check_we_var::my_string_update::failed");
 }
@@ -53,6 +59,8 @@ void check_ea_var(t_data *data, char **parts)
 {
 	if (my_string_compare(parts[0], "EA") != LS_EQUAL)
 		return ;
+	if (data->textures.ea_file_path)
+		exit_failure("check_no_var::double key");
 	if (my_string_update(&(data->textures.ea_file_path), parts[1]) == -1)
 		exit_failure("check_ea_var::my_string_update::failed");
 }
@@ -61,6 +69,8 @@ void check_door_var(t_data *data, char **parts)
 {
 	if (my_string_compare(parts[0], "DOOR") != LS_EQUAL)
 		return ;
+	if (data->textures.door_file_path)
+		exit_failure("check_no_var::double key");
 	if (my_string_update(&(data->textures.door_file_path), parts[1]) == -1)
 		exit_failure("check_ea_var::my_string_update::failed");
 }
@@ -71,6 +81,8 @@ void check_f_var(t_data *data, char **parts)
 
 	if (my_string_compare(parts[0], "F") != LS_EQUAL)
 		return ;
+	if (data->floor_color_given)
+		exit_failure("check_no_var::double key");
 	data->floor_color_given = true;
 	colors = my_string_split(parts[1], " ,");
 	if (my_strings_count(colors) != 3)
@@ -89,6 +101,8 @@ void check_c_var(t_data *data, char **parts)
 
 	if (my_string_compare(parts[0], "C") != LS_EQUAL)
 		return ;
+	if (data->ceiling_color_given)
+		exit_failure("check_no_var::double key");
 	data->ceiling_color_given = true;
 	colors = my_string_split(parts[1], " ,");
 	if (my_strings_count(colors) != 3)
