@@ -6,11 +6,11 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/11 00:12:42 by yrhiba            #+#    #+#              #
-#    Updated: 2024/01/15 20:10:20 by yrhiba           ###   ########.fr        #
+#    Updated: 2024/01/16 11:27:48 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = cub3d
+NAME = cub3D
 
 SRCS =	main.c \
 		0-data-module/init_data.c \
