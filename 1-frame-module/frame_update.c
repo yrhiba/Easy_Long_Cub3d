@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 02:19:26 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/15 16:38:18 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/16 11:17:29 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int frame_update(t_data *data)
 	render_footer(data);
 	/*add game info */
 
-	data->player->rotation_angle -= (FOV * 0.5 * data->player->look_direction);
 	data->frame_count += 1;
 	return (0);
 }
