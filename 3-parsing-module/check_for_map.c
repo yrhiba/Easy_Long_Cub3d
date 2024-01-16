@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 05:11:58 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/15 11:10:44 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/16 11:39:05 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	set_and_counts_map_items(t_data *data)
 		j = -1;
 		while (++j < data->map_width)
 		{
-			if (data->map[i][j] == 'X')
+			if (data->map[i][j] == ' ')
 				continue;
 			if (data->map[i][j] == '0')
 				data->zero_count += 1;
@@ -61,7 +61,7 @@ bool	check_adj_x(t_data *data, int i, int j)
 			continue;
 		if (jj < 0 || jj >= data->map_width)
 			continue;
-		if (data->map[ii][jj] != 'X' && data->map[ii][jj] != '1')
+		if (data->map[ii][jj] != ' ' && data->map[ii][jj] != '1')
 			return (false);
 	}
 	return (true);
@@ -78,7 +78,7 @@ bool	ismapbordervalid(t_data *data)
 		j = -1;
 		while (++j < data->map_width)
 		{
-			if (data->map[i][j] != 'X')
+			if (data->map[i][j] != ' ')
 				continue;
 			if (!check_adj_x(data, i, j))
 				return (false);

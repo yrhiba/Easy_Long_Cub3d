@@ -30,7 +30,7 @@ void	update_minmap(t_data *data)
 			if (0 <= i.y && i.y < data->map_height && 0 <= i.x && i.x < data->map_width)
 				data->mini_map[i.y - (p.y - MINMAP_HEIGHT / 2)][i.x - (p.x - MINMAP_WIDTH / 2)] = data->map[i.y][i.x];
 			else
-				data->mini_map[i.y - (p.y - MINMAP_HEIGHT / 2)][i.x - (p.x - MINMAP_WIDTH / 2)] = 'X';
+				data->mini_map[i.y - (p.y - MINMAP_HEIGHT / 2)][i.x - (p.x - MINMAP_WIDTH / 2)] = ' ';
 	}
 	data->player->minmap_pos.y = MINMAP_HEIGHT * TILE_HEIGTH * MINMAP_FACTOR / 2;
 	data->player->minmap_pos.x = MINMAP_WIDTH * TILE_WIDTH * MINMAP_FACTOR / 2;

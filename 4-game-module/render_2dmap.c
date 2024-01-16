@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 06:20:25 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/13 01:05:49 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/16 11:39:47 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void render_2dmap(t_data *data)
 		pos.x = -1;
 		while (++(pos.x) < data->map_width)
 		{
-			if (data->map[pos.y][pos.x] == 'X')
+			if (data->map[pos.y][pos.x] == ' ')
 				color = getcolor(0, 156, 156, 156);
 			if (data->map[pos.y][pos.x] == '0')
 				color = getcolor(0, 255, 255, 255);

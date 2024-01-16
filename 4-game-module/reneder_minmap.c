@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 00:07:07 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/16 11:18:10 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/16 11:39:38 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	reneder_minmap(t_data *data)
 		{
 			if (pos.x == -1 || pos.y == -1 || pos.x == MINMAP_WIDTH || pos.y == MINMAP_HEIGHT)
 				color = getcolor(0, 25, 0, 230);
-			else if (data->mini_map[pos.y][pos.x] == 'X')
+			else if (data->mini_map[pos.y][pos.x] == ' ')
 				color = getcolor(0, 156, 156, 156);
 			else if (data->mini_map[pos.y][pos.x] == '0')
 				color = getcolor(0, 255, 255, 255);

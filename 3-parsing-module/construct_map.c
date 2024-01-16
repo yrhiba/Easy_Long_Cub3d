@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 04:33:00 by yrhiba            #+#    #+#             */
-/*   Updated: 2024/01/12 05:46:57 by yrhiba           ###   ########.fr       */
+/*   Updated: 2024/01/16 11:39:21 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void update_and_allocat_map_data(t_data *data)
 			exit_failure("construct_map::malloc::failed");
 		j = -1;
 		while (++j < data->map_width)
-			data->map[i][j] = 'X';
+			data->map[i][j] = ' ';
 	}
 }
 
